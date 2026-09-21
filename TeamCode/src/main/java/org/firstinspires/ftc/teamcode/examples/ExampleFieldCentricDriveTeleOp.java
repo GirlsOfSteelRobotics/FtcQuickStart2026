@@ -3,10 +3,10 @@ package org.firstinspires.ftc.teamcode.examples;
 import com.pedropathing.drivetrain.DrivePowers;
 import com.pedropathing.follower.Follower;
 import com.pedropathing.follower.ManualDrive;
-import com.pedropathing.math.Pose;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.OpModeStorage;
 
 public class ExampleFieldCentricDriveTeleOp extends OpMode {
     private Follower follower;
@@ -14,6 +14,12 @@ public class ExampleFieldCentricDriveTeleOp extends OpMode {
     @Override
     public void init() {
         follower = Constants.create(hardwareMap);
+    }
+
+    @Override
+    public void start() {
+        follower.setPose(OpModeStorage.autonmousEndPose);
+        follower.update();
     }
 
     @Override

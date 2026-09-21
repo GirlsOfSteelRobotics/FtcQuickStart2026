@@ -15,6 +15,7 @@ import static com.pedropathing.ivy.groups.Groups.sequential;
 import static com.pedropathing.ivy.pedro.PedroCommands.follow;
 
 import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.OpModeStorage;
 
 @Autonomous(group = "Examples", name = "Example Autonomous")
 public class ExampleAuto extends OpMode {
@@ -69,5 +70,10 @@ public class ExampleAuto extends OpMode {
         telemetry.addData("Heading", Math.toDegrees(follower.pose().heading()));
         telemetry.addData("Follower Mode", follower.mode());
         telemetry.update();
+    }
+
+    public void stop()
+    {
+        OpModeStorage.autonmousEndPose = follower.pose();
     }
 }
